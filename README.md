@@ -15,7 +15,7 @@ Zenn の記事を [zenn-cli](https://zenn.dev/zenn/articles/zenn-cli-guide) と 
 5. `Cmd + Shift + P` でプレビューを開き、記事の見た目を確認する
 6. PR を作って下書きを main にマージし、公開したいタイミングで `/publish` を実行する
 
-pnpm が必要です。pnpm のバージョンは `package.json` の `packageManager` で固定しています。依存パッケージは、セッションを開始したときに hook で自動的にインストールされます。
+pnpm が必要です。pnpm のバージョンは `package.json` の `packageManager` で固定しています。依存パッケージは、worktree でセッションを開始したときに hook で自動的にインストールされます。
 
 ## 含まれているファイル
 
@@ -45,5 +45,5 @@ pnpm が必要です。pnpm のバージョンは `package.json` の `packageMan
 
 ## 参考
 
-- [Zenn CLI で記事・本を管理する方法](https://zenn.dev/zenn/articles/zenn-cli-guide)
-- [GitHub リポジトリで Zenn のコンテンツを管理する](https://zenn.dev/zenn/articles/connect-to-github)
+- [Zenn CLIで記事・本を管理する方法](https://zenn.dev/zenn/articles/zenn-cli-guide)
+- [アカウントにGitHubリポジトリを連携してZennのコンテンツを管理する](https://zenn.dev/zenn/articles/connect-to-github)
