@@ -40,6 +40,7 @@ zenn-cli が古いと、新しい記法がプレビューに反映されない�
 │           └── SKILL.md
 ├── articles
 ├── books
+├── LICENSE
 ├── package.json
 ├── pnpm-lock.yaml
 └── pnpm-workspace.yaml
@@ -53,6 +54,11 @@ zenn-cli が古いと、新しい記法がプレビューに反映されない�
 | `package.json` | `preview` スクリプト（`zenn preview --port ${PORT:-8000}`）と zenn-cli への依存、`packageManager` を定義しています |
 | `pnpm-workspace.yaml` | pnpm の設定です。`minimumReleaseAge` で公開から 3 日経っていないパッケージをインストールしないようにしています。`confirmModulesPurge: false` は、worktree の `node_modules` を作り直すときに確認プロンプトで止まらないようにする設定です |
 | `articles/`, `books/` | 記事と本を置くディレクトリです |
+| `LICENSE` | このテンプレートのライセンス（MIT-0）です。テンプレートから作ったリポジトリでは、削除したり自分のライセンスに置き換えたりして構いません |
+
+## ライセンス
+
+[MIT-0](LICENSE) です。著作権表示なしで自由に複製・改変・再配布できます。
 
 ## 参考
 
