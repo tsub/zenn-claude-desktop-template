@@ -38,7 +38,7 @@ Edit ツールを使う:
 
 ### Step 4: コミット
 
-以下の形式でコミットする（CLAUDE.md のコミットルールに従う）:
+以下の形式でコミットする:
 
 ```
 feat: publish article "{title}"
