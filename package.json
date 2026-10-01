@@ -1,0 +1,11 @@
+{
+  "name": "zenn-claude-desktop-template",
+  "private": true,
+  "scripts": {
+    "preview": "zenn preview --port ${PORT:-8000}"
+  },
+  "packageManager": "pnpm@11.2.1",
+  "dependencies": {
+    "zenn-cli": "^0.4.8"
+  }
+}

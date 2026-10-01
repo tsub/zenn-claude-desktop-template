@@ -1,0 +1,4 @@
+minimumReleaseAge: 4320
+strictDepBuilds: true
+strictPeerDependencies: true
+confirmModulesPurge: false
