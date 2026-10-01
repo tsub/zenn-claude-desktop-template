@@ -17,6 +17,17 @@ Zenn の記事を [zenn-cli](https://zenn.dev/zenn/articles/zenn-cli-guide) と 
 
 pnpm が必要です。pnpm のバージョンは `package.json` の `packageManager` で固定しています。依存パッケージは、worktree でセッションを開始したときに hook で自動的にインストールされます。
 
+## 依存ツールのバージョンについて
+
+このテンプレートでは、zenn-cli と pnpm のバージョンを `package.json` と `pnpm-lock.yaml` で固定しています。Dependabot などによる自動更新は設定していないため、テンプレートから作ったリポジトリでは時間が経つとバージョンが古くなります。
+
+zenn-cli が古いと、新しい記法がプレビューに反映されないなど Zenn 本体と見た目が食い違うことがあります。必要に応じて、自分のリポジトリで次のように更新してください。
+
+- zenn-cli: `pnpm update --latest zenn-cli`
+- pnpm: `package.json` の `packageManager` を新しいバージョンに書き換える
+
+定期的に更新したい場合は、自分のリポジトリで Dependabot や Renovate を設定してください。
+
 ## 含まれているファイル
 
 ```
