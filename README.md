@@ -2,6 +2,8 @@
 
 Zenn の記事を [zenn-cli](https://zenn.dev/zenn/articles/zenn-cli-guide) と Claude Code Desktop で書くためのテンプレートリポジトリです。
 
+このテンプレートを作った経緯や使い方の詳細は、[Zenn の記事](https://zenn.dev/socialplus/articles/zenn-cli-claude-desktop-writing-env)で紹介しています。
+
 - Claude Code Desktop のセッションごとに worktree が作られ、記事ごとに並行して執筆できます
 - `Cmd + Shift + P` で zenn preview を開き、公開時と同じ見た目で記事を確認できます。複数のセッションでプレビューを開いてもポートは衝突しません
 - 下書きは PR で main にマージし、公開するときは `/publish` スキルで `published: true` に書き換えて push します
