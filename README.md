@@ -1,6 +1,6 @@
 # zenn-claude-desktop-template
 
-Zenn の記事を [zenn-cli](https://zenn.dev/zenn/articles/zenn-cli-guide) と Claude Code Desktop で書くためのテンプレートリポジトリです。
+Zenn の記事を [Zenn CLI](https://zenn.dev/zenn/articles/zenn-cli-guide) と Claude Code Desktop で書くためのテンプレートリポジトリです。
 
 このテンプレートを作った経緯や使い方の詳細は、[Zenn の記事](https://zenn.dev/socialplus/articles/zenn-cli-claude-desktop-writing-env)で紹介しています。
 
@@ -21,11 +21,11 @@ pnpm が必要です。pnpm のバージョンは `package.json` の `packageMan
 
 ## 依存ツールのバージョンについて
 
-このテンプレートでは、zenn-cli と pnpm のバージョンを `package.json` と `pnpm-lock.yaml` で固定しています。Dependabot などによる自動更新は設定していないため、テンプレートから作ったリポジトリでは時間が経つとバージョンが古くなります。
+このテンプレートでは、Zenn CLI と pnpm のバージョンを `package.json` と `pnpm-lock.yaml` で固定しています。Dependabot などによる自動更新は設定していないため、テンプレートから作ったリポジトリでは時間が経つとバージョンが古くなります。
 
-zenn-cli が古いと、新しい記法がプレビューに反映されないなど Zenn 本体と見た目が食い違うことがあります。必要に応じて、自分のリポジトリで次のように更新してください。
+Zenn CLI が古いと、新しい記法がプレビューに反映されないなど Zenn 本体と見た目が食い違うことがあります。必要に応じて、自分のリポジトリで次のように更新してください。
 
-- zenn-cli: `pnpm update --latest zenn-cli`
+- Zenn CLI: `pnpm update --latest zenn-cli`
 - pnpm: `package.json` の `packageManager` を新しいバージョンに書き換える
 
 定期的に更新したい場合は、自分のリポジトリで Dependabot や Renovate を設定してください。
@@ -53,7 +53,7 @@ zenn-cli が古いと、新しい記法がプレビューに反映されない�
 | `.claude/launch.json` | Claude Code Desktop のプレビューで `pnpm run preview` を起動します。`autoPort: true` により、ポートが使用中なら空きポートが `PORT` 環境変数で渡されます |
 | `.claude/settings.json` | worktree でセッションを開始したときに `pnpm install` を実行する `SessionStart` hook です |
 | `.claude/skills/publish/SKILL.md` | `published: false` の記事を一覧から選び、`published: true` に書き換えてコミット・push するスキルです |
-| `package.json` | `preview` スクリプト（`zenn preview --port ${PORT:-8000}`）と zenn-cli への依存、`packageManager` を定義しています |
+| `package.json` | `preview` スクリプト（`zenn preview --port ${PORT:-8000}`）と `zenn-cli` パッケージへの依存、`packageManager` を定義しています |
 | `pnpm-workspace.yaml` | pnpm の設定です。`minimumReleaseAge` で公開から 3 日経っていないパッケージをインストールしないようにしています。`confirmModulesPurge: false` は、worktree の `node_modules` を作り直すときに確認プロンプトで止まらないようにする設定です |
 | `articles/`, `books/` | 記事と本を置くディレクトリです |
 | `LICENSE` | このテンプレートのライセンス（MIT-0）です。テンプレートから作ったリポジトリでは、削除したり自分のライセンスに置き換えたりして構いません |
