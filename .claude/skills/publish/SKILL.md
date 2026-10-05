@@ -1,15 +1,27 @@
 ---
 name: publish
-description: Zenn リポジトリの articles/ にある published: false の記事を一覧表示し、ユーザーが選択した記事を published: true に変更してコミットするスキル。「記事を公開して」「publish したい」「published にして」「Zenn に公開」「記事を公開する」といった依頼で発動する。公開対象の記事が特定されていない場合でも、Zenn の記事公開フローに関連する依頼には積極的にこのスキルを使う。
+description: Zenn リポジトリの articles/ にある published: false の記事を一覧表示し、ユーザーが選択した記事を published: true に変更してコミットし、main ブランチへ直接 push するスキル。「記事を公開して」「publish したい」「published にして」「Zenn に公開」「記事を公開する」といった依頼で発動する。公開対象の記事が特定されていない場合でも、Zenn の記事公開フローに関連する依頼には積極的にこのスキルを使う。
 ---
 
 # Publish Zenn Article
 
 ## 概要
 
-Zenn リポジトリの `articles/` ディレクトリにある未公開記事（`published: false`）を一覧し、ユーザーが選択した記事を公開状態（`published: true`）に変更してコミットする。
+Zenn リポジトリの `articles/` ディレクトリにある未公開記事（`published: false`）を一覧し、ユーザーが選択した記事を公開状態（`published: true`）に変更してコミットし、PR を経由せず `main` ブランチ（デフォルトブランチ）へ直接 push する。
 
 ## ワークフロー
+
+### Step 0: main の最新化と事前チェック
+
+公開コミットは `main` に直接 push するため、作業前に `origin/main` の最新を取り込む。
+
+```bash
+git fetch origin main
+git rev-list --count origin/main..HEAD
+```
+
+- 2つ目のコマンドの結果が `0` でない場合（現在のブランチに `main` 未反映のコミットがある場合）、それらも `main` に push されてしまうため、作業を中断してユーザーに確認する
+- `0` の場合は `git merge --ff-only origin/main` で現在のブランチを `origin/main` に追従させてから次へ進む
 
 ### Step 1: 未公開記事の収集
 
@@ -46,9 +58,22 @@ feat: publish article "{title}"
 
 コミットメッセージの本文（2行目以降）は不要。
 
-### Step 5: push
+### Step 5: main ブランチへ直接 push
 
-コミット後、そのまま `git push` を実行する。
+PR は作らず、デフォルトブランチである `main` に直接 push する。現在のブランチが `main` 以外（worktree の作業ブランチなど）でも、push 先は常に `origin/main` とする。
+
+```bash
+git push origin HEAD:main
+```
+
+non-fast-forward で拒否された場合は、`origin/main` の最新を取り込んでから再度 push する:
+
+```bash
+git pull --rebase origin main
+git push origin HEAD:main
+```
+
+rebase でコンフリクトした場合は push せずにユーザーへ報告して対処を仰ぐ。
 
 push 完了後、「`{title}` を公開しました」と報告する。
 
