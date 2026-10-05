@@ -1,6 +1,6 @@
 ---
 name: publish
-description: Zenn リポジトリの articles/ にある published: false の記事を一覧表示し、ユーザーが選択した記事を published: true に変更してコミットするスキル。「記事を公開して」「publish したい」「published にして」「Zenn に公開」「記事を公開する」といった依頼で発動する。公開対象の記事が特定されていない場合でも、Zenn の記事公開フローに関連する依頼には積極的にこのスキルを使う。
+description: Zenn リポジトリの articles/ にある published: false の記事を一覧表示し、ユーザーが選択した記事を published: true に変更してコミットし、main ブランチへ直接 push するスキル。「記事を公開して」「publish したい」「published にして」「Zenn に公開」「記事を公開する」といった依頼で発動する。公開対象の記事が特定されていない場合でも、Zenn の記事公開フローに関連する依頼には積極的にこのスキルを使う。
 ---
 
 # Publish Zenn Article
